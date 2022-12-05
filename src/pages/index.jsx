@@ -1,5 +1,7 @@
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
+
 import { useState, useEffect } from "react";
 
 function HomePage(data) {
@@ -13,13 +15,17 @@ function HomePage(data) {
     <ul>
       {people.map((person) => (
         <li key={person.id}>
-          <Image
-            src={person.picture}
-            alt={person.fullName}
-            width={100}
-            height={100}
-          />
-          <h1>{person.fullName}</h1>
+          <Link href="/profile/[id]" as={`/profile/${person.id}`}>
+            <a>
+              <Image
+                src={person.picture}
+                alt={person.fullName}
+                width={100}
+                height={100}
+              />
+              <h1>{person.fullName}</h1>
+            </a>
+          </Link>
           <p>Edad: {person.age}</p>
           <p>Género: {person.gender}</p>
           <p>Ocupación: {person.occupation}</p>

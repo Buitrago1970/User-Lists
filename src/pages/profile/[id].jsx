@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 
 function PersonPage({ id }) {
   const [person, setPerson] = useState({});
@@ -9,7 +10,7 @@ function PersonPage({ id }) {
 
   const router = useRouter();
   id = parseInt(router.query.id);
-
+  // get user data from id by URL
   useEffect(() => {
     async function fetchPerson() {
       const res = await axios.get(`http://localhost:3001/people/${id}`);
@@ -17,7 +18,7 @@ function PersonPage({ id }) {
     }
     fetchPerson();
   }, [id]);
-
+  //get task data by id
   useEffect(() => {
     async function fetchTasks() {
       const res = await axios.get("http://localhost:3001/tasks");
@@ -29,6 +30,7 @@ function PersonPage({ id }) {
 
   return (
     <>
+      {/* user data */}
       <h1>{person.fullName}</h1>
       <p>Edad: {person.age}</p>
       <p>Ocupación: {person.occupation}</p>
@@ -40,10 +42,11 @@ function PersonPage({ id }) {
         width={100}
         height={100}
       />
-      <button>Editar</button>
-
+      <Link href="/profile/[id]/edit" as={`/profile/${person.id}/edit`}>
+        <button>Editar</button>
+      </Link>
+      {/* task data */}
       <h2>Tareas</h2>
-
       <table>
         <thead>
           <tr>
@@ -60,10 +63,12 @@ function PersonPage({ id }) {
               <td>{task.description}</td>
               <td>{task.startDate}</td>
               {task.completed ? <td>True</td> : <td>False</td>}
+              <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
+                <button>Editar</button>
+              </Link>
             </tr>
           ))}
         </tbody>
-        <button>Editar</button>
       </table>
     </>
   );

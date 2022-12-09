@@ -35,69 +35,69 @@ function ProfileEdit({ id }) {
   }
 
   return (
-    <div className="relative flex justify-center  mt-36 bg-white h-screen">
+    <div className="relative flex justify-center  mt-36 bg-white pb-10">
       <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent -top-8" />
       <form className=" pt-24 space-y-10 " onSubmit={handleSubmit}>
-        <label className="form_label">
-          <p className="form-title">fullName:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">fullName:</p>
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.fullName}
             onChange={(event) => handleChange(event, "fullName")}
           />
         </label>
-        <label className="form_label">
-          <p className="form-title">age:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">age:</p>
 
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="number"
             value={person.age}
             onChange={(event) => handleChange(event, "age")}
           />
         </label>
-        <label className="form_label">
-          <p className="form-title">occupation:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">occupation:</p>
 
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.occupation}
             onChange={(event) => handleChange(event, "occupation")}
           />
         </label>
-        <label className="form_label">
-          <p className="form-title">nickname:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">nickname:</p>
 
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.nickname}
             onChange={(event) => handleChange(event, "nickname")}
           />
         </label>
-        <label className="form_label">
-          <p className="form-title">gender:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">gender:</p>
 
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.gender}
             onChange={(event) => handleChange(event, "gender")}
           />
         </label>
-        <label className="form_label">
-          <p className="form-title">Imagen:</p>
+        <label className="flex flex-col space-y-2">
+          <p className="w-1/3 ">Imagen:</p>
 
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.picture}
             onChange={(event) => handleChange(event, "picture")}
           />
         </label>
-        <div className="flex pt-10 justify-center space-x-10 ">
+        <div className="flex flex-col items-center space-y-6  pt-10 justify-center md:space-x-10 md:flex-row md:space-y-0">
           <button
             className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"
             type="submit"

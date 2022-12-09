@@ -71,9 +71,9 @@ function TaskEdit({ id }) {
       <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent -top-8" />
       <form className=" pt-24 space-y-10 " onSubmit={handleSubmit}>
         <label className="form_label">
-          <p className="form-title">title:</p>
+          <p className="w-1/3">title:</p>
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             name="title"
             value={task.title}
@@ -81,20 +81,20 @@ function TaskEdit({ id }) {
           />
         </label>
         <label className="form_label">
-          <p className="form-title"> description:</p>
+          <p className="w-1/3"> description:</p>
           <input
-            className="imput-form"
+            className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             name="description"
             value={task.description}
             onChange={handleInputChange}
           />
         </label>
-        <div className="flex space-x-10">
+        <div className="flex flex-col items-center space-y-4 md:space-x-10 md:flex-row">
           <label className="form_label">
-            <p className="form-title">startDate:</p>
+            <p className="w-2/4">startDate:</p>
             <input
-              className="imput-form-date"
+              className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
               type="date"
               name="startDate"
               value={task.startDate}
@@ -102,9 +102,9 @@ function TaskEdit({ id }) {
             />
           </label>
           <label className="form_label">
-            <p className="form-title"> endDate:</p>
+            <p className="w-2/4"> endDate:</p>
             <input
-              className="imput-form-date"
+              className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
               type="date"
               name="endDate"
               value={task.endDate}
@@ -113,7 +113,7 @@ function TaskEdit({ id }) {
           </label>
         </div>
         <label className="form_label">
-          <p className="form-title"> completed:</p>
+          <p className="w-1/3"> completed:</p>
           <label className="switch">
             <input
               type="checkbox"
@@ -129,7 +129,7 @@ function TaskEdit({ id }) {
             ></span>
           </label>
         </label>
-        <div className="flex pt-10 justify-center space-x-10 ">
+        <div className="flex flex-col space-y-4 pt-10 justify-center items-center md:space-x-10 md:flex-row">
           <button
             className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"
             type="submit"

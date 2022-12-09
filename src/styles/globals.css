@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .body-bg {
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      rgba(233, 184, 234, 0.71) 0deg,
+      rgba(248, 202, 202, 0.921875) 28.12deg,
+      #8fe4ff 275.62deg,
+      rgba(233, 184, 234, 0.71) 360deg
+    );
+  }
+  .box-shadow-card {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

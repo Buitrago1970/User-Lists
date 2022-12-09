@@ -31,9 +31,9 @@ function PersonPage({ id }) {
   return (
     <>
       {/* user data */}
-      <h1>{person.fullName}</h1>
+      <h1 className="">{person.fullName}</h1>
       <p>Edad: {person.age}</p>
-      <p>Ocupación: {person.occupation}</p>
+      <p className="">Ocupación: {person.occupation}</p>
       <p>Apodo: {person.nickname}</p>
       <p>Género: {person.gender}</p>
       <Image

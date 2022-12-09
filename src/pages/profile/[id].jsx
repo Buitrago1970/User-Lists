@@ -31,7 +31,6 @@ function PersonPage({ id }) {
   return (
     <div className="mt-36 bg-white ">
       {/* user data */}
-
       <div className="flex justify-between  relative">
         <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent bottom-[200px]" />
         <div className=" flex mx-10 ">

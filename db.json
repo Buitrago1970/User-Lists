@@ -12,7 +12,7 @@
     {
       "id": 2,
       "fullName": "Jane Smith",
-      "age": 27,
+      "age": "270",
       "occupation": "Doctor",
       "nickname": "Jane",
       "gender": "Female",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "fullName": "Bob Johnson",
-      "age": 45,
+      "age": "40",
       "occupation": "Teacher",
       "nickname": "Bobby",
       "gender": "Male",
@@ -30,16 +30,16 @@
     {
       "id": 4,
       "fullName": "Alice Williams",
-      "age": 29,
+      "age": "26433",
       "occupation": "Lawyer",
       "nickname": "Ali",
-      "gender": "Female",
+      "gender": "test",
       "picture": "https://randomuser.me/api/portraits/lego/4.jpg"
     },
     {
       "id": 5,
       "fullName": "Michael Brown",
-      "age": 41,
+      "age": "60",
       "occupation": "Construction Worker",
       "nickname": "Mike",
       "gender": "Male",
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "fullName": "Samantha Taylor",
-      "age": 26,
+      "age": "100000",
       "occupation": "Graphic Designer",
       "nickname": "Sam",
       "gender": "Female",

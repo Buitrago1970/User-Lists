@@ -34,7 +34,18 @@ function TaskEdit({ id }) {
       return alert(
         "Please fill out all required fields (title, description, startDate) to save changes to the task."
       );
-    } //check if endDate is set and is before today
+    }
+    //check if endDate is set and is before today
+    if (task.endDate && new Date(task.endDate) < new Date()) {
+      task.completed = true;
+    }
+
+    //update task data with new values
+    if (window.confirm("Are you sure you want to save the changes?")) {
+      axios.put(`http://localhost:3001/tasks/${id}`, task);
+      router.push("/");
+    }
+    //check if endDate is set and is before today
     if (task.endDate && new Date(task.endDate) < new Date()) {
       task.completed = true;
     }
@@ -101,6 +112,23 @@ function TaskEdit({ id }) {
             />
           </label>
         </div>
+        <label className="form_label">
+          <p className="form-title"> completed:</p>
+          <label className="switch">
+            <input
+              type="checkbox"
+              name="completed"
+              value={task.completed}
+              onChange={handleInputChange}
+              className="w-7 h-7"
+            />
+            <span
+              className={
+                task.completed ? "slider round green" : "slider round red"
+              }
+            ></span>
+          </label>
+        </label>
         <div className="flex pt-10 justify-center space-x-10 ">
           <button
             className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"

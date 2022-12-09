@@ -25,29 +25,51 @@ function TaskEdit({ id }) {
     return <p>No se encontró ninguna tarea con el ID especificado.</p>;
   }
   return (
-    <>
-      <h1>Editar tarea</h1>
-      <form>
-        <label>
-          Título:
-          <input type="text" value={task.title} />
+    <div className="relative flex justify-center  mt-36 bg-white h-screen">
+      <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent -top-8" />
+      <form className=" pt-24 space-y-10 ">
+        <label className="form_label">
+          <p className="form-title">Título:</p>
+          <input className="imput-form" type="text" value={task.title} />
         </label>
-        <label>
-          Descripción:
-          <input type="text" value={task.description} />
+        <label className="form_label">
+          <p className="form-title"> Descripción:</p>
+          <input className="imput-form" type="text" value={task.description} />
         </label>
-        <label>
-          Fecha de inicio:
-          <input type="date" value={task.startDate} />
-        </label>
-        <label>
-          Fecha de finalización:
-          <input type="date" value={task.endDate} />
-        </label>
-        <button type="submit">Guardar cambios</button>
-        <button onClick={handleCancel}>Cancelar</button>
+        <div className="flex space-x-10">
+          <label className="form_label">
+            <p className="form-title">Fecha de inicio:</p>
+            <input
+              className="imput-form-date"
+              type="date"
+              value={task.startDate}
+            />
+          </label>
+          <label className="form_label">
+            <p className="form-title"> Fecha de finalización:</p>
+            <input
+              className="imput-form-date"
+              type="date"
+              value={task.endDate}
+            />
+          </label>
+        </div>
+        <div className="flex pt-10 justify-center space-x-10 ">
+          <button
+            className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white"
+            type="submit"
+          >
+            Guardar cambios
+          </button>
+          <button
+            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6]"
+            onClick={handleCancel}
+          >
+            Cancelar
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

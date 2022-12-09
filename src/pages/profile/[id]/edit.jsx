@@ -23,38 +23,55 @@ function ProfileEdit({ id }) {
   }
 
   return (
-    <>
-      <h1>Editar perfil</h1>
-      <form>
-        <label>
-          Nombre completo:
-          <input type="text" value={person.fullName} />
+    <div className="relative flex justify-center  mt-36 bg-white h-screen">
+      <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent -top-8" />
+      <form className=" pt-24 space-y-10 ">
+        <label className="form_label">
+          <p className="form-title">Nombre completo:</p>
+          <input className="imput-form" type="text" value={person.fullName} />
         </label>
-        <label>
-          Edad:
-          <input type="number" value={person.age} />
-        </label>
-        <label>
-          Ocupación:
-          <input type="text" value={person.occupation} />
-        </label>
-        <label>
-          Apodo:
-          <input type="text" value={person.nickname} />
-        </label>
-        <label>
-          Género:
-          <input type="text" value={person.gender} />
-        </label>
-        <label>
-          Imagen:
-          <input type="text" value={person.picture} />
-        </label>
-        <button type="submit">Guardar cambios</button>
+        <label className="form_label">
+          <p className="form-title">Edad:</p>
 
-        <button onClick={handleCancel}>Cancelar</button>
+          <input className="imput-form" type="number" value={person.age} />
+        </label>
+        <label className="form_label">
+          <p className="form-title">Ocupación:</p>
+
+          <input className="imput-form" type="text" value={person.occupation} />
+        </label>
+        <label className="form_label">
+          <p className="form-title">Apodo:</p>
+
+          <input className="imput-form" type="text" value={person.nickname} />
+        </label>
+        <label className="form_label">
+          <p className="form-title">Género:</p>
+
+          <input className="imput-form" type="text" value={person.gender} />
+        </label>
+        <label className="form_label">
+          <p className="form-title">Imagen:</p>
+
+          <input className="imput-form" type="text" value={person.picture} />
+        </label>
+        <div className="flex pt-10 justify-center space-x-10 ">
+          <button
+            className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white"
+            type="submit"
+          >
+            Guardar cambios
+          </button>
+
+          <button
+            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6]"
+            onClick={handleCancel}
+          >
+            Cancelar
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

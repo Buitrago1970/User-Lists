@@ -17,9 +17,36 @@
   }
 
   .info-titles {
-    font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 30px;
+  }
+  .form-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    min-width: 200px;
+    margin-right: 20px;
+  }
+  .imput-form {
+    background: #ececec;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    min-width: 400px;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+  }
+  .imput-form-date {
+    background: #ececec;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    min-width: 200px;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+  }
+  .form_label {
+    display: flex;
   }
 }

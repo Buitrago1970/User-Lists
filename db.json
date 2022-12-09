@@ -264,11 +264,11 @@
     },
     {
       "id": 20,
-      "title": "Task 20",
+      "title": "Task 2",
       "description": "This is the twentieth task on the list.",
-      "completed": false,
+      "completed": true,
       "startDate": "2022-12-04",
-      "endDate": null,
+      "endDate": "2022-12-02",
       "personId": 10
     }
   ]

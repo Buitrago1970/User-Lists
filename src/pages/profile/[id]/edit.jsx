@@ -16,20 +16,19 @@ function ProfileEdit({ id }) {
     }
     fetchPerson();
   }, [id]);
-
+  // btn cancel send form
   function handleCancel() {
-    if (window.confirm("¿Seguro que deseas cancelar los cambios?")) {
+    if (window.confirm("Are you sure you want to cancel the changes?")) {
       router.back();
     }
   }
-
   function handleChange(event, field) {
     setPerson({ ...person, [field]: event.target.value });
   }
-
+  //submit the form with the new values
   function handleSubmit(event) {
     event.preventDefault();
-    if (window.confirm("¿Seguro que deseas guardar los cambios?")) {
+    if (window.confirm("Are you sure you want to save the changes?")) {
       axios.put(`http://localhost:3001/people/${id}`, person);
       router.push("/");
     }
@@ -40,7 +39,7 @@ function ProfileEdit({ id }) {
       <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent -top-8" />
       <form className=" pt-24 space-y-10 " onSubmit={handleSubmit}>
         <label className="form_label">
-          <p className="form-title">Nombre completo:</p>
+          <p className="form-title">fullName:</p>
           <input
             className="imput-form"
             type="text"
@@ -49,7 +48,7 @@ function ProfileEdit({ id }) {
           />
         </label>
         <label className="form_label">
-          <p className="form-title">Edad:</p>
+          <p className="form-title">age:</p>
 
           <input
             className="imput-form"
@@ -59,7 +58,7 @@ function ProfileEdit({ id }) {
           />
         </label>
         <label className="form_label">
-          <p className="form-title">Ocupación:</p>
+          <p className="form-title">occupation:</p>
 
           <input
             className="imput-form"
@@ -69,7 +68,7 @@ function ProfileEdit({ id }) {
           />
         </label>
         <label className="form_label">
-          <p className="form-title">Apodo:</p>
+          <p className="form-title">nickname:</p>
 
           <input
             className="imput-form"
@@ -79,7 +78,7 @@ function ProfileEdit({ id }) {
           />
         </label>
         <label className="form_label">
-          <p className="form-title">Género:</p>
+          <p className="form-title">gender:</p>
 
           <input
             className="imput-form"
@@ -103,7 +102,7 @@ function ProfileEdit({ id }) {
             className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"
             type="submit"
           >
-            Guardar cambios
+            Save Changes
           </button>
 
           <button
@@ -111,7 +110,7 @@ function ProfileEdit({ id }) {
             onClick={handleCancel}
             type="reset"
           >
-            Cancelar
+            Cancel
           </button>
         </div>
       </form>

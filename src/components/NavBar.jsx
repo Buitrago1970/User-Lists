@@ -8,11 +8,14 @@ export default function NavBar() {
     <div>
       <header>
         <h1 className="hidden">Mi aplicación</h1>
-        <nav className="m-8 text-3xl font-bold space-x-10">
+        <nav className="m-8 text-3xl font-bold space-x-10 ">
           <Link href="/">
-            <a>HOME</a>
+            <a className="hover:text-neutral-400">HOME</a>
           </Link>
-          <button onClick={() => router.back()}>
+          <button
+            className="hover:text-neutral-400"
+            onClick={() => router.back()}
+          >
             <a>{"BACK"}</a>
           </button>
         </nav>

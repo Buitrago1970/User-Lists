@@ -56,13 +56,13 @@ function TaskEdit({ id }) {
         </div>
         <div className="flex pt-10 justify-center space-x-10 ">
           <button
-            className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white"
+            className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"
             type="submit"
           >
             Guardar cambios
           </button>
           <button
-            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6]"
+            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6] hover:bg-[#C2C2C2]"
             onClick={handleCancel}
           >
             Cancelar

@@ -17,7 +17,7 @@ function HomePage(data) {
         {people.map((person) => (
           <li
             key={person.id}
-            className="px-6 py-2 cursor-pointer bg-white border border-black rounded-[20px] m-2 box-shadow-card w-[60%] flex items-center
+            className="px-6 py-2 cursor-pointer bg-white border border-black rounded-[20px] m-2 box-shadow-card w-[60%] flex items-center hover:bg-slate-200 
           "
           >
             <Link href="/profile/[id]" as={`/profile/${person.id}`}>

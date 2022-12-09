@@ -61,7 +61,7 @@ function PersonPage({ id }) {
 
         <div className="mt-8 mx-10">
           <Link href="/profile/[id]/edit" as={`/profile/${person.id}/edit`}>
-            <button className="border rounded-3xl w-40 py-2 text-sm bg-gray-200 border-blue-600 text-blue-600">
+            <button className="border rounded-2xl w-40 py-2 text-sm bg-gray-50 border-blue-600 text-blue-600 hover:bg-gray-200">
               EDITAR PERFIL
             </button>
           </Link>
@@ -71,7 +71,7 @@ function PersonPage({ id }) {
       {/* task data */}
       <div className="w-3/4 m-auto mt-5">
         <h2 className="text-3xl font-bold mb-14 ">Tareas</h2>
-        <div className=" text-center h-60 p-8 bg-white rounded-t-3xl  shadow-2xl box-shadow-card-top w-full">
+        <div className=" text-center h-60 p-8 bg-white rounded-t-3xl  box-shadow-car-task box-shadow-card-top w-full">
           <table className="h-full w-full">
             <thead className="mb-10">
               <tr>
@@ -87,10 +87,14 @@ function PersonPage({ id }) {
                   <td>{task.title}</td>
                   <td>{task.description}</td>
                   <td>{task.startDate}</td>
-                  {task.completed ? <td>True</td> : <td>False</td>}
-                  <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
-                    <button>Editar</button>
-                  </Link>
+                  <td>{task.completed ? <>True</> : <>False</>}</td>
+                  <td>
+                    <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
+                      <button className="text-[#004FC6] underline hover:text-blue-500">
+                        edit task
+                      </button>
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

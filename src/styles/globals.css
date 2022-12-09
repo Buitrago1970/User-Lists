@@ -15,6 +15,9 @@
   .box-shadow-card {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
+  .box-shadow-car-task {
+    filter: drop-shadow(1px -1px 10px rgba(0, 0, 0, 0.13));
+  }
 
   .info-titles {
     font-weight: 700;

@@ -5,7 +5,7 @@ function App({ Component, pageProps }) {
     return (<>
         <NavBar />
         <Component {...pageProps} />;
-        <footer>este es el footer</footer>
+
     </>
 
     )

@@ -29,48 +29,75 @@ function PersonPage({ id }) {
   }, [id]);
 
   return (
-    <>
+    <div className="mt-36 bg-white ">
       {/* user data */}
-      <h1 className="">{person.fullName}</h1>
-      <p>Edad: {person.age}</p>
-      <p className="">Ocupación: {person.occupation}</p>
-      <p>Apodo: {person.nickname}</p>
-      <p>Género: {person.gender}</p>
-      <Image
-        src={person.picture}
-        alt={person.fullName}
-        width={100}
-        height={100}
-      />
-      <Link href="/profile/[id]/edit" as={`/profile/${person.id}/edit`}>
-        <button>Editar</button>
-      </Link>
+
+      <div className="flex justify-between  relative">
+        <div className="absolute w-full h-10 bg-gradient-to-t from-white to-transparent bottom-[200px]" />
+        <div className=" flex mx-10 ">
+          <div className=" relative bottom-20">
+            <Image
+              src={person.picture}
+              alt={person.fullName}
+              width={200}
+              height={200}
+              objectFit="contain"
+              className="rounded-full border-1 border-black"
+            />
+          </div>
+          <div className="ml-14">
+            <h1 className="text-5xl font-bold relative bottom-11">
+              {person.fullName}
+            </h1>
+
+            <div className="">
+              <p className="info-titles">Edad: {person.age}</p>
+              <p className="info-titles">Ocupación:{person.occupation} </p>
+              <p className="info-titles">Apodo: {person.nickname}</p>
+              <p className="info-titles">Género:{person.gender} </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 mx-10">
+          <Link href="/profile/[id]/edit" as={`/profile/${person.id}/edit`}>
+            <button className="border rounded-3xl w-40 py-2 text-sm bg-gray-200 border-blue-600 text-blue-600">
+              EDITAR PERFIL
+            </button>
+          </Link>
+        </div>
+      </div>
+
       {/* task data */}
-      <h2>Tareas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Fecha de inicio</th>
-            <th>Completado</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasks.map((task) => (
-            <tr key={task.id}>
-              <td>{task.title}</td>
-              <td>{task.description}</td>
-              <td>{task.startDate}</td>
-              {task.completed ? <td>True</td> : <td>False</td>}
-              <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
-                <button>Editar</button>
-              </Link>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
+      <div className="w-3/4 m-auto mt-5">
+        <h2 className="text-3xl font-bold mb-14 ">Tareas</h2>
+        <div className=" text-center h-60 p-8 bg-white rounded-t-3xl  shadow-2xl box-shadow-card-top w-full">
+          <table className="h-full w-full">
+            <thead className="mb-10">
+              <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha de inicio</th>
+                <th>Completado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tasks.map((task) => (
+                <tr key={task.id}>
+                  <td>{task.title}</td>
+                  <td>{task.description}</td>
+                  <td>{task.startDate}</td>
+                  {task.completed ? <td>True</td> : <td>False</td>}
+                  <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
+                    <button>Editar</button>
+                  </Link>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   );
 }
 

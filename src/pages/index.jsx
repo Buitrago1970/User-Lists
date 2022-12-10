@@ -21,7 +21,7 @@ function HomePage(data) {
 
   return (
     <div className="">
-      <div className="space-x-5 px-3">
+      <div className="space-x-5 px-3 flex justify-center md:justify-start">
         <button onClick={() => setOrder(order === "asc" ? "desc" : "asc")}>
           {order === "asc"
             ? "Ordenar de menor a mayor edad"

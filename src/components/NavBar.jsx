@@ -17,6 +17,7 @@ export default function NavBar() {
             onClick={() => router.back()}
           >
             <a>{"BACK"}</a>
+            <p>{"<----"}</p>
           </button>
         </nav>
       </header>

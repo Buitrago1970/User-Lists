@@ -3,12 +3,11 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 function ProfileEdit({ id }) {
-  const [person, setPerson] = useState({});
-
   const router = useRouter();
   id = parseInt(router.query.id);
 
   // get user data from id by URL
+  const [person, setPerson] = useState({});
   useEffect(() => {
     async function fetchPerson() {
       const res = await axios.get(`http://localhost:3001/people/${id}`);
@@ -16,19 +15,21 @@ function ProfileEdit({ id }) {
     }
     fetchPerson();
   }, [id]);
+
   // btn cancel send form
   function handleCancel() {
     if (window.confirm("Are you sure you want to cancel the changes?")) {
       router.back();
     }
   }
-  function handleChange(event, field) {
-    setPerson({ ...person, [field]: event.target.value });
-  }
+
   //submit the form with the new values
   function handleSubmit(event) {
     event.preventDefault();
-    if (window.confirm("Are you sure you want to save the changes?")) {
+    const saveChanges = window.confirm(
+      "Are you sure you want to save the changes?"
+    );
+    if (saveChanges) {
       axios.put(`http://localhost:3001/people/${id}`, person);
       router.push("/");
     }
@@ -44,73 +45,79 @@ function ProfileEdit({ id }) {
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.fullName}
-            onChange={(event) => handleChange(event, "fullName")}
+            onChange={(event) =>
+              setPerson({ ...person, fullName: event.target.value })
+            }
           />
         </label>
         <label className="flex flex-col space-y-2">
           <p className="w-1/3 ">age:</p>
-
           <input
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="number"
             value={person.age}
-            onChange={(event) => handleChange(event, "age")}
+            onChange={(event) =>
+              setPerson({ ...person, age: event.target.value })
+            }
           />
         </label>
         <label className="flex flex-col space-y-2">
           <p className="w-1/3 ">occupation:</p>
-
           <input
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.occupation}
-            onChange={(event) => handleChange(event, "occupation")}
+            onChange={(event) =>
+              setPerson({ ...person, occupation: event.target.value })
+            }
           />
         </label>
         <label className="flex flex-col space-y-2">
           <p className="w-1/3 ">nickname:</p>
-
           <input
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.nickname}
-            onChange={(event) => handleChange(event, "nickname")}
+            onChange={(event) =>
+              setPerson({ ...person, nickname: event.target.value })
+            }
           />
         </label>
         <label className="flex flex-col space-y-2">
           <p className="w-1/3 ">gender:</p>
-
           <input
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
             value={person.gender}
-            onChange={(event) => handleChange(event, "gender")}
+            onChange={(event) =>
+              setPerson({ ...person, gender: event.target.value })
+            }
           />
         </label>
         <label className="flex flex-col space-y-2">
           <p className="w-1/3 ">Imagen:</p>
-
           <input
             className="bg-[#ececec] border border-black rounded-xl h-12 text-xl p-3 w-full"
             type="text"
-            value={person.picture}
-            onChange={(event) => handleChange(event, "picture")}
+            value={person.image}
+            onChange={(event) =>
+              setPerson({ ...person, image: event.target.value })
+            }
           />
         </label>
         <div className="flex flex-col items-center space-y-6  pt-10 justify-center md:space-x-10 md:flex-row md:space-y-0">
           <button
+            type="button"
             className="border rounded-3xl w-60 py-3 text-base bg-[#004FC6] border-[#004FC6] text-white hover:bg-[#0043A8]"
-            type="submit"
-          >
-            Save Changes
-          </button>
-
-          <button
-            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6] hover:bg-[#C2C2C2]"
             onClick={handleCancel}
-            type="reset"
           >
             Cancel
+          </button>
+          <button
+            type="submit"
+            className="border rounded-3xl w-60 py-3 text-base bg-gray-200 border-[#004FC6] text-[#004FC6] hover:bg-[#C2C2C2]"
+          >
+            Save changes
           </button>
         </div>
       </form>

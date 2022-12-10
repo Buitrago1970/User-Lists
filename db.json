@@ -7,7 +7,7 @@
       "occupation": "Software Developer",
       "nickname": "Johnny",
       "gender": "Male",
-      "picture": "https://randomuser.me/api/portraits/lego/1.jpg"
+      "picture": ""
     },
     {
       "id": 2,
@@ -84,10 +84,10 @@
     {
       "id": 10,
       "fullName": "Ashley Johnson",
-      "age": 30,
+      "age": "32",
       "occupation": "Salespeople",
-      "nickname": "Ash",
-      "gender": "Female",
+      "nickname": "ash",
+      "gender": "Femal",
       "picture": "https://randomuser.me/api/portraits/lego/1.jpg"
     }
   ],

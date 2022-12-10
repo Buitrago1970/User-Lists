@@ -5,27 +5,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 function PersonPage({ id }) {
-  const [person, setPerson] = useState({});
-  const [tasks, setTasks] = useState([]);
-
   const router = useRouter();
   id = parseInt(router.query.id);
+  const [data, setData] = useState({
+    person: {},
+    tasks: [],
+  });
+
   // get user data from id by URL
   useEffect(() => {
-    async function fetchPerson() {
+    async function fetchData() {
       const res = await axios.get(`http://localhost:3001/people/${id}`);
-      setPerson(res.data);
+      const person = res.data;
+
+      const tasksRes = await axios.get("http://localhost:3001/tasks");
+      const personTasks = tasksRes.data.filter((item) => item.personId === id);
+      setData({
+        person,
+        tasks: personTasks,
+      });
     }
-    fetchPerson();
-  }, [id]);
-  //get task data by id
-  useEffect(() => {
-    async function fetchTasks() {
-      const res = await axios.get("http://localhost:3001/tasks");
-      const personTasks = res.data.filter((item) => item.personId === id);
-      setTasks(personTasks);
-    }
-    fetchTasks();
+    fetchData();
   }, [id]);
 
   return (
@@ -36,8 +36,8 @@ function PersonPage({ id }) {
         <div className=" block mx-10 md:flex">
           <div className=" relative bottom-20">
             <Image
-              src={person.picture}
-              alt={person.fullName}
+              src={data.person.picture}
+              alt={data.person.fullName}
               width={200}
               height={200}
               objectFit="contain"
@@ -46,32 +46,34 @@ function PersonPage({ id }) {
           </div>
           <div className="m-0 md:ml-14">
             <h1 className="text-5xl font-bold relative bottom-11">
-              {person.fullName}
+              {data.person.fullName}
             </h1>
 
             <div className="mb-10">
               <div className="justify-center flex space-x-3 items-center md:justify-start ">
                 <p className="info-titles">Age: </p>
-                <p className="text-lg">{person.age}</p>
+                <p className="text-lg">{data.person.age}</p>
               </div>
               <div className="justify-center flex space-x-3 items-center md:justify-start">
                 <p className="info-titles">Occupation: </p>
-                <p className="text-lg">{person.occupation}</p>
+                <p className="text-lg">{data.person.occupation}</p>
               </div>{" "}
               <div className="justify-center flex space-x-3 items-center md:justify-start">
                 <p className="info-titles">Nickname: </p>
-                <p className="text-lg">{person.nickname}</p>
+                <p className="text-lg">{data.person.nickname}</p>
               </div>{" "}
               <div className="justify-center flex space-x-3 items-center md:justify-start">
                 <p className="info-titles">Gender: </p>
-                <p className="text-lg">{person.gender}</p>
+                <p className="text-lg">{data.person.gender}</p>
               </div>
             </div>
           </div>
         </div>
-
         <div className="md:mb-8 md:mx-10 ">
-          <Link href="/profile/[id]/edit" as={`/profile/${person.id}/edit`}>
+          <Link
+            href="/profile/[id]/edit"
+            as={`/profile/${data.person.id}/edit`}
+          >
             <button className="border rounded-2xl w-40 py-2 text-sm bg-gray-50 border-blue-600 text-blue-600 shadow-sm hover:bg-gray-200">
               EDIT PROFILE
             </button>
@@ -93,12 +95,19 @@ function PersonPage({ id }) {
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task) => (
+              {data.tasks.map((task) => (
                 <tr key={task.id}>
                   <td>{task.title}</td>
                   <td>{task.description}</td>
                   <td>{task.startDate}</td>
-                  <td>{task.completed ? <>True</> : <>False</>}</td>
+                  <td>
+                    {" "}
+                    <input
+                      className="bg-white border rounded-full w-4"
+                      type="checkbox"
+                      checked={task.completed}
+                    />
+                  </td>
                   <td>
                     <Link href="/tasks/[id]/edit" as={`/tasks/${task.id}/edit`}>
                       <button className="text-[#004FC6] underline hover:text-blue-500">
